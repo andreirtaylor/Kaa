@@ -1,7 +1,9 @@
-package main
+package kaa
 
 import (
 	"encoding/json"
+	"google.golang.org/appengine"
+	//"google.golang.org/appengine/log"
 	"net/http"
 )
 
@@ -26,6 +28,13 @@ func handleStart(res http.ResponseWriter, req *http.Request) {
 }
 
 func handleMove(res http.ResponseWriter, req *http.Request) {
+	ctx := appengine.NewContext(req)
+	//client, err := storage.NewClient(ctx)
+
+	//if err != nil {
+	//	log.Errorf(ctx, "Cannot initialize data storage")
+	//}
+	ctx.Done()
 	data, err := NewMoveRequest(req)
 	if err != nil {
 		respond(res, JSON{"move": "north", "taunt": "can't parse this!"})

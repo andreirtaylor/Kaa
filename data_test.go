@@ -1,9 +1,9 @@
-package main
+package kaa
 
 import (
 	"testing"
 
-	assert "gopkg.in/go-playground/assert.v1"
+	assert "github.com/stretchr/testify/assert"
 )
 
 func TestNewBoard(t *testing.T) {
